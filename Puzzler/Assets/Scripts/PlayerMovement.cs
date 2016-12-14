@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 	public Transform player;
 	public Transform initialPoint;
 	public Transform finalPoint;
+	public static int location = 0;
+	public static bool init = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,11 +21,13 @@ public class PlayerMovement : MonoBehaviour {
 	public void GoToInitialPoint()
 	{
 		StartCoroutine(Motion(player.position, initialPoint.position));
+		location = 1;
 	}
 
 	public void GoToFinalPoint()
 	{
 		StartCoroutine(Motion(player.position, finalPoint.position));
+		location = 2;
 	}
 
 	public void RestartScene()
@@ -40,6 +44,7 @@ public class PlayerMovement : MonoBehaviour {
 			transform.position = Vector3.Lerp(iniPos, finalPos, timeMove);
 			if (transform.position == finalPos)
 			{
+				init = true;
 				yield break;
 			}
 			yield return null;
