@@ -3,6 +3,7 @@ using System.Collections;
 
 public class lightUp : MonoBehaviour {
 	public Material lightUpMaterial;
+	public Material gazeMaterial;
 	private Material defaultMaterial;
 	GvrAudioSource audioSource;
 	public int orbNumber;
@@ -35,18 +36,26 @@ public class lightUp : MonoBehaviour {
 
 
 	public void gazeLightUp() {
-		this.GetComponent<MeshRenderer>().material = lightUpMaterial; //Assign the hover material
+		this.GetComponent<MeshRenderer>().material = gazeMaterial; //Assign the hover material
+	}
+
+	public void LightOrb()
+	{
+		StartCoroutine(clickedOrb(1));
+	}
+
+	IEnumerator clickedOrb(float duration)
+	{
+		this.GetComponent<MeshRenderer>().material = lightUpMaterial;
 		audioSource.Play();
-
-		//gameLogic.GetComponent<gameLogic>().playerSelection(this.gameObject);
-
-
+		yield return new WaitForSeconds(duration - .1f);
+		aestheticReset();
 	}
 	void playerSelection() {
 		//GameLogic.GetComponent<gameLogic>().playerSelection(this.gameObject);
 		//audioSource.Play();
 	}
-	void aestheticReset() {
+	public void aestheticReset() {
 		this.GetComponent<MeshRenderer>().material = defaultMaterial; //Revert to the default material
 	}
 
