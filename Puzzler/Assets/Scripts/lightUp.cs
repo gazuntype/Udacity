@@ -34,7 +34,7 @@ public class lightUp : MonoBehaviour {
 	}
 
 
-	void gazeLightUp() {
+	public void gazeLightUp() {
 		this.GetComponent<MeshRenderer>().material = lightUpMaterial; //Assign the hover material
 		audioSource.Play();
 
