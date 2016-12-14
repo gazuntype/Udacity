@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -23,6 +24,11 @@ public class PlayerMovement : MonoBehaviour {
 	public void GoToFinalPoint()
 	{
 		StartCoroutine(Motion(player.position, finalPoint.position));
+	}
+
+	public void RestartScene()
+	{
+		SceneManager.LoadScene("mainScene");
 	}
 
 	IEnumerator Motion(Vector3 iniPos, Vector3 finalPos)
