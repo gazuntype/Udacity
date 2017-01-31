@@ -22,10 +22,10 @@ public class Teleporter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (viewer.Triggered)
+		/*if (viewer.Triggered)
 		{
 			wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
-		}
+		}*/
 		Vector3 destination = wayPoints[wayPointIndex].position + (Vector3.up * height);
 		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * speed);
 	}
