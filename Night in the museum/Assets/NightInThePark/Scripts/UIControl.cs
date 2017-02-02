@@ -8,6 +8,7 @@ public class UIControl : MonoBehaviour {
 	public Text hint;
 	public Text body;
 	public Button play;
+	public Button move;
 
 	enum UserState { title, instructions, introduction }
 
@@ -40,6 +41,16 @@ public class UIControl : MonoBehaviour {
 				break;
 			case UserState.instructions:
 				currentUserState = UserState.introduction;
+				title.text = "INTRODUCTION";
+				subTitle.text = "Be amazed.";
+				body.transform.GetChild(0).gameObject.SetActive(false);
+				body.lineSpacing = 1;
+				body.text = "Hello! This is a simple VR experience to showcase the application of virtual reality to amusement parks." +
+					" Companies like VRCoaster have made it their goal to cleverly integrate virtual reality in rides like rollercoasters and haunted house. Click the GO button and let's begin!";
+				hint.text = "Click the sound button to activate voice over";
+				hint.gameObject.SetActive(false);
+				StopCoroutine(DisplayHint());
+				StartCoroutine(DisplayHint());
 				break;
 		}
 	}
