@@ -21,7 +21,6 @@ public class UIControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public void Play()
@@ -39,20 +38,24 @@ public class UIControl : MonoBehaviour {
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
 				break;
+			case UserState.instructions:
+				currentUserState = UserState.introduction;
+				break;
 		}
 	}
+
 
 	public void GazeOnButton()
 	{
 		Image buttonImage;
-		buttonImage = this.gameObject.GetComponent<Image>();
+		buttonImage = play.gameObject.GetComponent<Image>();
 		buttonImage.color = Color.green;
 	}
 
 	public void GazeOffButton()
 	{
 		Image buttonImage;
-		buttonImage = this.gameObject.GetComponent<Image>();
+		buttonImage = play.gameObject.GetComponent<Image>();
 		buttonImage.color = Color.white;
 	}
 
