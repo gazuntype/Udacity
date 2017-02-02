@@ -12,7 +12,7 @@ public class UIControl : MonoBehaviour {
 	enum UserState { title, instructions, introduction }
 
 	private UserState currentUserState;
-	private float hintTimer = 5f;
+	private float hintTimer = 6f;
 	// Use this for initialization
 	void Start () {
 		currentUserState = UserState.title;
@@ -35,10 +35,25 @@ public class UIControl : MonoBehaviour {
 				body.gameObject.SetActive(true);
 				hint.text = "Look at the button and click";
 				hint.gameObject.SetActive(false);
+				play.gameObject.transform.localPosition -= new Vector3(0,90,0);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
 				break;
 		}
+	}
+
+	public void GazeOnButton()
+	{
+		Image buttonImage;
+		buttonImage = this.gameObject.GetComponent<Image>();
+		buttonImage.color = Color.green;
+	}
+
+	public void GazeOffButton()
+	{
+		Image buttonImage;
+		buttonImage = this.gameObject.GetComponent<Image>();
+		buttonImage.color = Color.white;
 	}
 
 	IEnumerator DisplayHint()
