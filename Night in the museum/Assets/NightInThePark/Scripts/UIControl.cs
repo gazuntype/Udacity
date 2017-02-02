@@ -6,6 +6,7 @@ public class UIControl : MonoBehaviour {
 	public Text title;
 	public Text subTitle;
 	public Text hint;
+	public Text body;
 	public Button play;
 
 	enum UserState { title, instructions, introduction }
@@ -29,7 +30,10 @@ public class UIControl : MonoBehaviour {
 		{
 			case UserState.title:
 				currentUserState = UserState.instructions;
-				hint.text = "I like this booty";
+				title.text = "INSTRUCTIONS";
+				subTitle.text = "Buttons and their uses";
+				body.gameObject.SetActive(true);
+				hint.text = "Look at the button and click";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
