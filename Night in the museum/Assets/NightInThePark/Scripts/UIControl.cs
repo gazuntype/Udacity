@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Gvr;
+using Google;
 using System.Collections;
 
-public class UIControl : MonoBehaviour {
+public class UIControl : MonoBehaviour{
 	public Text title;
 	public Text subTitle;
 	public Text hint;
@@ -10,6 +12,7 @@ public class UIControl : MonoBehaviour {
 	public Button play;
 	public Button move;
 
+	public static bool moveClicked;
 	enum UserState { title, instructions, introduction }
 
 	private UserState currentUserState;
@@ -23,6 +26,7 @@ public class UIControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
+
 
 	public void Play()
 	{
@@ -49,24 +53,32 @@ public class UIControl : MonoBehaviour {
 					" Companies like VRCoaster have made it their goal to cleverly integrate virtual reality in rides like rollercoasters and haunted house. Click the GO button and let's begin!";
 				hint.text = "Click the sound button to activate voice over";
 				hint.gameObject.SetActive(false);
+				play.gameObject.SetActive(false);
+				move.gameObject.SetActive(true);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
 				break;
 		}
 	}
 
+	public void Move()
+	{
+		moveClicked = true;
+	}
+
 
 	public void GazeOnButton()
 	{
 		Image buttonImage;
-		buttonImage = play.gameObject.GetComponent<Image>();
+		Debug.Log(GvrReticle.target.name);
+		buttonImage = GvrReticle.target.GetComponent<Image>();
 		buttonImage.color = Color.green;
 	}
 
 	public void GazeOffButton()
 	{
 		Image buttonImage;
-		buttonImage = play.gameObject.GetComponent<Image>();
+		buttonImage = GvrReticle.target.GetComponent<Image>();
 		buttonImage.color = Color.white;
 	}
 

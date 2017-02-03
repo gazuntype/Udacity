@@ -197,7 +197,7 @@ public class GvrGaze : MonoBehaviour {
     }
   }
 
-  private GameObject FindGazeTarget(float radius, out IGvrGazeResponder responder,
+  public GameObject FindGazeTarget(float radius, out IGvrGazeResponder responder,
       out Vector3 intersectPosition) {
     RaycastHit hit;
     GameObject targetObject = null;

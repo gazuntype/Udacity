@@ -21,6 +21,7 @@ using UnityEngine;
 public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// Number of segments making the reticle circle.
   public int reticleSegments = 20;
+	public static GameObject target;
 
   /// Growth speed multiplier for the reticle/
   public float reticleGrowthSpeed = 8.0f;
@@ -93,6 +94,7 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                           bool isInteractive) {
     SetGazeTarget(intersectionPosition, isInteractive);
+		target = targetObject;
   }
 
   /// Called every frame the user is still looking at a valid GameObject. This
