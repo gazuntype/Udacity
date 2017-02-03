@@ -5,6 +5,9 @@ public class Teleporter : MonoBehaviour {
 	[Tooltip("The different positions the user would be teleported to in order")]
 	public Transform[] wayPoints;
 
+	[Tooltip("The different positions the canvas would be teleported to in order")]
+	public Transform[] wayPointsCanvas;
+
 	public GameObject canvas;
 
 	[Tooltip("The speed of teleportation")]
@@ -14,12 +17,10 @@ public class Teleporter : MonoBehaviour {
 	public float height = 1.75f;
 
 	int wayPointIndex = 0;
-	GvrViewer viewer;
 
 	// Use this for initialization
 	void Start () {
 		wayPointIndex = 0;
-		viewer = GameObject.Find("GvrViewerMain").GetComponent<GvrViewer>();
 	}
 	
 	// Update is called once per frame
@@ -27,8 +28,9 @@ public class Teleporter : MonoBehaviour {
 		if (UIControl.moveClicked)
 		{
 			wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
-			Vector3 canvasDestination = wayPoints[wayPointIndex].position + (Vector3.up * height) + (Vector3.forward * 7);
+			Vector3 canvasDestination = wayPointsCanvas[wayPointIndex].position + (Vector3.up * height);
 			canvas.transform.position = canvasDestination;
+			canvas.transform.Rotate(new Vector3(0, 90, 0));
 			UIControl.moveClicked = false;
 		}
 		Vector3 destination = wayPoints[wayPointIndex].position + (Vector3.up * height);
