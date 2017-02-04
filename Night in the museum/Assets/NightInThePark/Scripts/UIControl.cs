@@ -16,7 +16,7 @@ public class UIControl : MonoBehaviour{
 	enum UserState { title, instructions, introduction, station1, station2, station3, station4, station5 }
 
 	private UserState currentUserState;
-	private float hintTimer = 6f;
+	private float hintTimer = 10f;
 	// Use this for initialization
 	void Start () {
 		currentUserState = UserState.title;
@@ -75,7 +75,7 @@ public class UIControl : MonoBehaviour{
 				subTitle.text = "VR Coaster";
 				body.text = "VR Coaster pride themselves in the evolution of amusement park rides using virtual reality. They boast of equipping over 20 parks worldwide with virtual reality rides" +
 					"and are the market leaders in terms of VR experiences on rollercoasters and rides.";
-				hint.text = "Clcik the move button to go to next station";
+				hint.text = "Click the move button to go to next station";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
