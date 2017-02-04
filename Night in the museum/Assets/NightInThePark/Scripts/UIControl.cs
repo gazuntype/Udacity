@@ -60,11 +60,22 @@ public class UIControl : MonoBehaviour{
 				break;
 			case UserState.introduction:
 				currentUserState = UserState.station1;
-				title.text = "IMPACT OF VR";
+				title.text = "IMPACT OF VR IN POPULAR INDUSTRIES";
 				subTitle.text = "It's everywhere.";
 				body.text = "Virtual reality has impacted many industries greatly. The most popular sects include gaming, education, tourism and even medicine." +
 					"Though this is amazing, the scope of VR reach is still beyond.";
 				hint.text = "You can hide images with the image button";
+				hint.gameObject.SetActive(false);
+				StopCoroutine(DisplayHint());
+				StartCoroutine(DisplayHint());
+				break;
+			case UserState.station1:
+				currentUserState = UserState.station2;
+				title.text = "VR AMUSEMENT PARKS";
+				subTitle.text = "VR Coaster";
+				body.text = "VR Coaster pride themselves in the evolution of amusement park rides using virtual reality. They boast of equipping over 20 parks worldwide with virtual reality rides" +
+					"and are the market leaders in terms of VR experiences on rollercoasters and rides.";
+				hint.text = "Clcik the move button to go to next station";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
