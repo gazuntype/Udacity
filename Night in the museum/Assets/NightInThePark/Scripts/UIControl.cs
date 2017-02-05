@@ -90,6 +90,16 @@ public class UIControl : MonoBehaviour{
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
 				break;
+			case UserState.station3:
+				currentUserState = UserState.station4;
+				title.text = "Gallery";
+				subTitle.text = "Awesome pictures.";
+				hint.text = "Click on images to view them.";
+				hint.gameObject.SetActive(false);
+				StopCoroutine(DisplayHint());
+				StartCoroutine(DisplayHint());
+				break;
+
 		}
 	}
 
