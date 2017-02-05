@@ -99,7 +99,7 @@ public class UIControl : MonoBehaviour{
 	}
 
 
-	public void GazeOnButton()
+	/*public void GazeOnButton()
 	{
 		Image buttonImage;
 		Debug.Log(GvrReticle.target.name);
@@ -112,7 +112,7 @@ public class UIControl : MonoBehaviour{
 		Image buttonImage;
 		buttonImage = GvrReticle.target.GetComponent<Image>();
 		buttonImage.color = Color.white;
-	}
+	}*/
 
 	IEnumerator DisplayHint()
 	{
