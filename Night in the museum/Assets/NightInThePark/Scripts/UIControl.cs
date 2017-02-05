@@ -60,7 +60,7 @@ public class UIControl : MonoBehaviour{
 				break;
 			case UserState.introduction:
 				currentUserState = UserState.station1;
-				title.text = "IMPACT OF VR IN POPULAR INDUSTRIES";
+				title.text = "IMPACT OF VR";
 				subTitle.text = "It's everywhere.";
 				body.text = "Virtual reality has impacted many industries greatly. The most popular sects include gaming, education, tourism and even medicine." +
 					"Though this is amazing, the scope of VR reach is still beyond.";
@@ -76,6 +76,16 @@ public class UIControl : MonoBehaviour{
 				body.text = "VR Coaster pride themselves in the evolution of amusement park rides using virtual reality. They boast of equipping over 20 parks worldwide with virtual reality rides" +
 					"and are the market leaders in terms of VR experiences on rollercoasters and rides.";
 				hint.text = "Click the move button to go to next station";
+				hint.gameObject.SetActive(false);
+				StopCoroutine(DisplayHint());
+				StartCoroutine(DisplayHint());
+				break;
+			case UserState.station2:
+				currentUserState = UserState.station3;
+				title.text = "VR RIDES";
+				subTitle.text = "Examples";
+				body.text = "Some of the amusement parks that offer virtual reality awesomeness include: \n Six Flags \n Cedar Fair \n Europa-Park \n Lotte World";
+				hint.text = "Click on images to view them.";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
