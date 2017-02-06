@@ -35,6 +35,7 @@ public class Teleporter : MonoBehaviour {
 			canvas.transform.position = canvasDestination;
 			canvas.transform.LookAt(wayPoints[wayPointIndex].position + (Vector3.up * height));
 			canvas.transform.Rotate(new Vector3(0, 180, 0));
+			canvas.transform.eulerAngles = new Vector3(0, canvas.transform.eulerAngles.y, canvas.transform.eulerAngles.z);
 			UIControl.moveClicked = false;
 		}
 		Vector3 destination = wayPoints[wayPointIndex].position + (Vector3.up * height);
