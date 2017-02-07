@@ -99,6 +99,7 @@ public class UIControl : MonoBehaviour{
 				title.text = "Gallery";
 				subTitle.text = "Awesome pictures.";
 				hint.text = "Click on images to view them.";
+				body.gameObject.SetActive(false);
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
