@@ -20,7 +20,7 @@ public class ImageControl : MonoBehaviour {
 	public Text title;
 	public Text subTitle;
 
-	enum SpriteIndex { medicine, game, tourism, vrcoaster };
+	enum SpriteIndex { medicine, game, tourism, vrcoaster, sixFlags, cedarPoint, europaPark };
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +39,9 @@ public class ImageControl : MonoBehaviour {
 		images[SpriteIndex.game] = sprites[1];
 		images[SpriteIndex.tourism] = sprites[2];
 		images[SpriteIndex.vrcoaster] = sprites[3];
+		images[SpriteIndex.cedarPoint] = sprites[4];
+		images[SpriteIndex.europaPark] = sprites[5];
+		images[SpriteIndex.sixFlags] = sprites[6];
 	}
 
 	IEnumerator ImageChange()
@@ -49,12 +52,6 @@ public class ImageControl : MonoBehaviour {
 			{
 				switch (UIControl.currentUserState)
 				{
-					case UIControl.UserState.title:
-						break;
-					case UIControl.UserState.instructions:
-						break;
-					case UIControl.UserState.introduction:
-						break;
 					case UIControl.UserState.station1:
 						title.gameObject.SetActive(true);
 						subTitle.gameObject.SetActive(true);
@@ -68,8 +65,26 @@ public class ImageControl : MonoBehaviour {
 						imageObjects[2].sprite = images[SpriteIndex.tourism];
 						break;
 					case UIControl.UserState.station2:
+						title.gameObject.SetActive(false);
+						subTitle.gameObject.SetActive(false);
+						foreach (Image imageIndex in imageObjects)
+						{
+							imageIndex.gameObject.SetActive(false);
+						}
+						bigImage.gameObject.SetActive(true);
+						bigImage.sprite = images[SpriteIndex.vrcoaster];
 						break;
 					case UIControl.UserState.station3:
+						title.gameObject.SetActive(true);
+						subTitle.gameObject.SetActive(true);
+						bigImage.gameObject.SetActive(false);
+						foreach (Image imageIndex in imageObjects)
+						{
+							imageIndex.gameObject.SetActive(true);
+						}
+						imageObjects[0].sprite = images[SpriteIndex.cedarPoint];
+						imageObjects[1].sprite = images[SpriteIndex.sixFlags];
+						imageObjects[2].sprite = images[SpriteIndex.europaPark];
 						break;
 					case UIControl.UserState.station4:
 						break;
