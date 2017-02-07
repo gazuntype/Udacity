@@ -13,9 +13,12 @@ public class UIControl : MonoBehaviour{
 	public Button move;
 
 	public static bool moveClicked;
-	enum UserState { title, instructions, introduction, station1, station2, station3, station4, station5 }
+	public static bool playClicked;
+	public enum UserState { title, instructions, introduction, station1, station2, station3, station4, station5 }
 
-	private UserState currentUserState;
+	[HideInInspector]
+	public static UserState currentUserState;
+
 	private float hintTimer = 10f;
 	// Use this for initialization
 	void Start () {
@@ -30,6 +33,7 @@ public class UIControl : MonoBehaviour{
 
 	public void Play()
 	{
+		playClicked = true;
 		switch (currentUserState)
 		{
 			case UserState.title:
