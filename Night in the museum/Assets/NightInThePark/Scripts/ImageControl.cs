@@ -15,10 +15,12 @@ public class ImageControl : MonoBehaviour {
 	[Tooltip("Background image")]
 	public Image background;
 
+	public Image bigImage;
+
 	public Text title;
 	public Text subTitle;
 
-	enum SpriteIndex { medicine, game, tourism };
+	enum SpriteIndex { medicine, game, tourism, vrcoaster };
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,7 @@ public class ImageControl : MonoBehaviour {
 		images[SpriteIndex.medicine] = sprites[0];
 		images[SpriteIndex.game] = sprites[1];
 		images[SpriteIndex.tourism] = sprites[2];
+		images[SpriteIndex.vrcoaster] = sprites[3];
 	}
 
 	IEnumerator ImageChange()
