@@ -7,16 +7,18 @@ public class ImageControl : MonoBehaviour {
 	[Tooltip("All the images that can be displayed")]
 	public Sprite[] sprites;
 
-	Dictionary<string,Sprite> images = new Dictionary<string, Sprite>();
+	Dictionary<SpriteIndex,Sprite> images = new Dictionary<SpriteIndex, Sprite>();
 
 	[Tooltip("Image Objects that display the images")]
 	public Image[] imageObjects;
 
 	[Tooltip("Background image")]
-	public Image Background;
+	public Image background;
 
 	public Text title;
 	public Text subTitle;
+
+	enum SpriteIndex { medicine, game, tourism };
 
 	// Use this for initialization
 	void Start () {
@@ -31,9 +33,9 @@ public class ImageControl : MonoBehaviour {
 
 	void SpriteToDictionary()
 	{
-		images["medicine"] = sprites[0];
-		images["game"] = sprites[1];
-		images["tourism"] = sprites[2];
+		images[SpriteIndex.medicine] = sprites[0];
+		images[SpriteIndex.game] = sprites[1];
+		images[SpriteIndex.tourism] = sprites[2];
 	}
 
 	IEnumerator ImageChange()
@@ -45,25 +47,28 @@ public class ImageControl : MonoBehaviour {
 				switch (UIControl.currentUserState)
 				{
 					case UIControl.UserState.title:
-						UIControl.currentUserState = UIControl.UserState.instructions;
 						break;
 					case UIControl.UserState.instructions:
-						UIControl.currentUserState = UIControl.UserState.introduction;
 						break;
 					case UIControl.UserState.introduction:
-						UIControl.currentUserState = UIControl.UserState.station1;
 						break;
 					case UIControl.UserState.station1:
-						UIControl.currentUserState = UIControl.UserState.station2;
+						title.gameObject.SetActive(true);
+						subTitle.gameObject.SetActive(true);
+						background.gameObject.SetActive(true);
+						foreach (Image imageIndex in imageObjects)
+						{
+							imageIndex.gameObject.SetActive(true);
+						}
+						imageObjects[0].sprite = images[SpriteIndex.medicine];
+						imageObjects[1].sprite = images[SpriteIndex.game];
+						imageObjects[2].sprite = images[SpriteIndex.tourism];
 						break;
 					case UIControl.UserState.station2:
-						UIControl.currentUserState = UIControl.UserState.station3;
 						break;
 					case UIControl.UserState.station3:
-						UIControl.currentUserState = UIControl.UserState.station4;
 						break;
 					case UIControl.UserState.station4:
-						UIControl.currentUserState = UIControl.UserState.station5;
 						break;
 				}
 				UIControl.playClicked = false;
