@@ -99,7 +99,7 @@ public class UIControl : MonoBehaviour{
 				title.text = "Gallery";
 				subTitle.text = "Awesome pictures.";
 				hint.text = "Click on images to view them.";
-				body.gameObject.SetActive(false);
+				body.text = "This is the gallery. Here you can view awesome pictures of people having a lot of fun from virtual reality rides";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
