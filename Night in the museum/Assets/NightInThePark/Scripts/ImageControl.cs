@@ -15,6 +15,8 @@ public class ImageControl : MonoBehaviour {
 	[Tooltip("Background image")]
 	public Image background;
 
+	public GameObject gallery;
+
 	public Image bigImage;
 
 	public Text title;
@@ -88,6 +90,10 @@ public class ImageControl : MonoBehaviour {
 						break;
 					case UIControl.UserState.station4:
 						foreach (Image imageIndex in imageObjects)
+						{
+							imageIndex.gameObject.SetActive(false);
+						}
+						gallery.SetActive(true);
 						break;
 				}
 				UIControl.playClicked = false;
