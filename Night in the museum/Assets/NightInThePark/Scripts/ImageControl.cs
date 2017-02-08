@@ -87,6 +87,7 @@ public class ImageControl : MonoBehaviour {
 						imageObjects[2].sprite = images[SpriteIndex.europaPark];
 						break;
 					case UIControl.UserState.station4:
+						foreach (Image imageIndex in imageObjects)
 						break;
 				}
 				UIControl.playClicked = false;
