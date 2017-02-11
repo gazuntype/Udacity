@@ -22,6 +22,8 @@ public class ImageControl : MonoBehaviour {
 	public Text title;
 	public Text subTitle;
 
+	Transform imageOriginalPosition;
+
 	enum SpriteIndex { medicine, game, tourism, vrcoaster, sixFlags, cedarPoint, europaPark };
 
 	// Use this for initialization
