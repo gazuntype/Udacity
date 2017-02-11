@@ -29,6 +29,7 @@ public class ImageZoomer : MonoBehaviour {
 	public void ZoomImage()
 	{
 		imageOriginalPosition = transform;
+		transform.SetAsLastSibling();
 		zoom = true;
 	}
 }
