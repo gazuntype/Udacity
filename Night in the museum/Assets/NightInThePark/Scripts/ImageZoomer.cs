@@ -4,9 +4,11 @@ using System.Collections;
 public class ImageZoomer : MonoBehaviour {
 	public GameObject user;
 	public float speed = 10f;
+	Vector3 imageDestination;
 
 	bool zoom;
-	Transform imageOriginalPosition;
+	bool isZoomedIn;
+	Vector3 imageOriginalPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +19,6 @@ public class ImageZoomer : MonoBehaviour {
 	void Update () {
 		if (zoom)
 		{
-			Vector3 imageDestination = user.transform.position + (Vector3.forward * -3) - (Vector3.up);
 			transform.position = Vector3.Lerp(transform.position, imageDestination, Time.deltaTime * speed);
 			if (transform.position == imageDestination)
 			{
@@ -28,8 +29,19 @@ public class ImageZoomer : MonoBehaviour {
 
 	public void ZoomImage()
 	{
-		imageOriginalPosition = transform;
-		transform.SetAsLastSibling();
-		zoom = true;
+		if (!isZoomedIn)
+		{
+			imageOriginalPosition = transform.position;
+			imageDestination = user.transform.position + (Vector3.forward * -3) - (Vector3.up);
+			transform.SetAsLastSibling();
+			isZoomedIn = true;
+			zoom = true;
+		}
+		else {
+			imageDestination = imageOriginalPosition;
+			isZoomedIn = false;
+			zoom = true;
+		}
 	}
+
 }
