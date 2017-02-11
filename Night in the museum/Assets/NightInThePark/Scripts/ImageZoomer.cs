@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ImageZoomer : MonoBehaviour {
 	public GameObject user;
-	public float speed = 5f;
+	public float speed = 10f;
 
 	Transform imageOriginalPosition;
 
@@ -22,7 +22,5 @@ public class ImageZoomer : MonoBehaviour {
 		imageOriginalPosition = transform;
 		Vector3 imageDestination = user.transform.position + (Vector3.forward * 3);
 		transform.position = Vector3.Lerp(transform.position, imageDestination, Time.deltaTime * speed);
-		transform.LookAt(user.transform);
-		transform.Rotate(new Vector3(0, 180, 0));
 	}
 }
