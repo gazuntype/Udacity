@@ -32,7 +32,15 @@ public class ImageZoomer : MonoBehaviour {
 		if (!isZoomedIn)
 		{
 			imageOriginalPosition = transform.position;
-			imageDestination = user.transform.position + (Vector3.forward * -3) - (Vector3.up);
+			switch (UIControl.currentUserState)
+			{
+				case UIControl.UserState.station1:
+					imageDestination = user.transform.position + (Vector3.forward * -3) - (Vector3.up);
+					break;
+				case UIControl.UserState.station3:
+					imageDestination = user.transform.position + (Vector3.forward * 3) - (Vector3.up);
+					break;
+			}
 			transform.SetAsLastSibling();
 			isZoomedIn = true;
 			zoom = true;
