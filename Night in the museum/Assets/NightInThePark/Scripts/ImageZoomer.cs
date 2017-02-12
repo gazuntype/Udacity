@@ -21,12 +21,10 @@ public class ImageZoomer : MonoBehaviour {
 		if (zoom)
 		{
 			transform.position = Vector3.Lerp(transform.position, imageDestination, lerpConstant * speed);
-			Debug.Log(lerpConstant * speed);
 			lerpConstant += 0.01f;
 			if (transform.position == imageDestination)
 			{
-				Debug.Log("I am at my destination");
-				lerpConstant = 0.01f;
+				lerpConstant = 0f;
 				zoom = false;
 			}
 		}
