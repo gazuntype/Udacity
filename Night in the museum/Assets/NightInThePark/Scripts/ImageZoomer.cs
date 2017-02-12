@@ -43,6 +43,9 @@ public class ImageZoomer : MonoBehaviour {
 				case UIControl.UserState.station3:
 					imageDestination = user.transform.position + (Vector3.forward * 3) - (Vector3.up);
 					break;
+				case UIControl.UserState.station4:
+					imageDestination = user.transform.position + (Vector3.forward * -3) - (Vector3.right * 2f);
+					break;
 			}
 			transform.SetAsLastSibling();
 			isZoomedIn = true;
