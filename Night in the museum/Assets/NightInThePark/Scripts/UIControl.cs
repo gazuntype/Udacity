@@ -138,21 +138,6 @@ public class UIControl : MonoBehaviour{
 	}
 
 
-	/*public void GazeOnButton()
-	{
-		Image buttonImage;
-		Debug.Log(GvrReticle.target.name);
-		buttonImage = GvrReticle.target.GetComponent<Image>();
-		buttonImage.color = Color.green;
-	}
-
-	public void GazeOffButton()
-	{
-		Image buttonImage;
-		buttonImage = GvrReticle.target.GetComponent<Image>();
-		buttonImage.color = Color.white;
-	}*/
-
 	IEnumerator DisplayHint()
 	{
 		while (!hint.gameObject.activeSelf)
