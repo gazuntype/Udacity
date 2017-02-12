@@ -97,6 +97,12 @@ public class ImageControl : MonoBehaviour {
 						}
 						gallery.SetActive(true);
 						break;
+					case UIControl.UserState.station5:
+						gallery.SetActive(false);
+						background.gameObject.SetActive(false);
+						title.gameObject.SetActive(false);
+						subTitle.gameObject.SetActive(false);
+						break;
 				}
 				UIControl.playClicked = false;
 			}

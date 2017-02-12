@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Gvr;
-using Google;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class UIControl : MonoBehaviour{
@@ -11,6 +10,8 @@ public class UIControl : MonoBehaviour{
 	public Text body;
 	public Button play;
 	public Button move;
+	public Button yes;
+	public Button no;
 
 	public static bool moveClicked;
 	public static bool playClicked;
@@ -104,13 +105,36 @@ public class UIControl : MonoBehaviour{
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
 				break;
-
+			case UserState.station4:
+				currentUserState = UserState.station5;
+				title.text = "Conclusion";
+				subTitle.text = "We're Done!";
+				move.gameObject.SetActive(false);
+				yes.gameObject.SetActive(true);
+				no.gameObject.SetActive(true);
+				hint.text = "Click retry to go through the experience again.";
+				body.text = "I hope with this short presentation, excitement and knowledge has been passed across on the application of Virtual Reality in amusement parks. Thank you! " +
+					"\n Do you want to restart the experience?";
+				hint.gameObject.SetActive(false);
+				StopCoroutine(DisplayHint());
+				StartCoroutine(DisplayHint());
+				break;
 		}
 	}
 
 	public void Move()
 	{
 		moveClicked = true;
+	}
+
+	public void Yes()
+	{
+		SceneManager.LoadScene("main scene");
+	}
+
+	public void No()
+	{
+		Application.Quit();
 	}
 
 
