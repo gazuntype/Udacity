@@ -13,6 +13,7 @@
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll"
 -r:Assets/Plugins/Google.ProtocolBuffers.dll
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
@@ -22,6 +23,7 @@
 -define:UNITY_5_4_2
 -define:UNITY_5_4
 -define:UNITY_5
+-define:UNITY_ANALYTICS
 -define:ENABLE_NEW_BUGREPORTER
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING

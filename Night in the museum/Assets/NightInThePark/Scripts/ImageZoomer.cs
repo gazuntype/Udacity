@@ -4,8 +4,9 @@ using System.Collections;
 public class ImageZoomer : MonoBehaviour {
 	public GameObject user;
 	public float speed = 10f;
-	Vector3 imageDestination;
 
+	Vector3 imageDestination;
+	float lerpConstant = 0f;
 	bool zoom;
 	bool isZoomedIn;
 	Vector3 imageOriginalPosition;
@@ -19,9 +20,13 @@ public class ImageZoomer : MonoBehaviour {
 	void Update () {
 		if (zoom)
 		{
-			transform.position = Vector3.Lerp(transform.position, imageDestination, Time.deltaTime * speed);
+			transform.position = Vector3.Lerp(transform.position, imageDestination, lerpConstant * speed);
+			Debug.Log(lerpConstant * speed);
+			lerpConstant += 0.01f;
 			if (transform.position == imageDestination)
 			{
+				Debug.Log("I am at my destination");
+				lerpConstant = 0.01f;
 				zoom = false;
 			}
 		}
