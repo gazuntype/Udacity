@@ -21,8 +21,10 @@ public class UIControl : MonoBehaviour{
 	public static UserState currentUserState;
 
 	private float hintTimer = 10f;
+	GvrAudioSource audioSource;
 	// Use this for initialization
 	void Start () {
+		audioSource = GetComponent<GvrAudioSource>();
 		currentUserState = UserState.title;
 		StartCoroutine(DisplayHint());
 	}
@@ -137,6 +139,11 @@ public class UIControl : MonoBehaviour{
 	public void No()
 	{
 		Application.Quit();
+	}
+
+	public void PlayButtonSound()
+	{
+		audioSource.Play();
 	}
 
 
