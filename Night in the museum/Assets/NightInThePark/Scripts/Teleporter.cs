@@ -19,17 +19,21 @@ public class Teleporter : MonoBehaviour {
 	[Tooltip("The height of the canvas")]
 	public float canvasHeight = 2;
 
+	GvrAudioSource audioSource;
+
 	int wayPointIndex = 0;
 
 	// Use this for initialization
 	void Start () {
 		wayPointIndex = 0;
+		audioSource = GetComponent<GvrAudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (UIControl.moveClicked)
 		{
+			audioSource.Play();
 			wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 			Vector3 canvasDestination = wayPointsCanvas[wayPointIndex].position + (Vector3.up * canvasHeight);
 			canvas.transform.position = canvasDestination;
