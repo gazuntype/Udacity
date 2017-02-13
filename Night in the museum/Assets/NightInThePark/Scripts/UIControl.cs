@@ -90,6 +90,7 @@ public class UIControl : MonoBehaviour{
 				title.text = "VR RIDES";
 				subTitle.text = "Examples";
 				body.text = "Some of the amusement parks that offer virtual reality awesomeness include: \n Six Flags \n Cedar Fair \n Europa-Park \n Lotte World";
+				body.fontSize = 14;
 				hint.text = "Click on images to view them.";
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
@@ -101,6 +102,7 @@ public class UIControl : MonoBehaviour{
 				subTitle.text = "Awesome pictures.";
 				hint.text = "Click on images to view them.";
 				body.text = "This is the gallery. Here you can view awesome pictures of people having a lot of fun from virtual reality rides";
+				body.fontSize = 15;
 				hint.gameObject.SetActive(false);
 				StopCoroutine(DisplayHint());
 				StartCoroutine(DisplayHint());
