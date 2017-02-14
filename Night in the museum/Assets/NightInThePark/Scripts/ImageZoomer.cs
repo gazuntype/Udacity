@@ -11,6 +11,7 @@ public class ImageZoomer : MonoBehaviour {
 	bool isZoomedIn;
 	Vector3 imageOriginalPosition;
 
+
 	// Use this for initialization
 	void Start () {
 	
