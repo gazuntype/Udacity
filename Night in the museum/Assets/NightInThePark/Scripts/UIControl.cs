@@ -57,7 +57,7 @@ public class UIControl : MonoBehaviour{
 				body.transform.GetChild(0).gameObject.SetActive(false);
 				body.lineSpacing = 1;
 				body.text = "Hello! This is a simple VR experience to showcase the application of virtual reality to amusement parks." +
-					" Companies like VRCoaster have made it their goal to cleverly integrate virtual reality in rides like rollercoasters and haunted house. Click the GO button and let's begin!";
+					" Companies like VRCoaster have made it their goal to cleverly integrate virtual reality in rides like rollercoasters and haunted houses. Click the GO button and let's begin!";
 				hint.text = "Click the sound button to activate voice over";
 				hint.gameObject.SetActive(false);
 				play.gameObject.SetActive(false);
