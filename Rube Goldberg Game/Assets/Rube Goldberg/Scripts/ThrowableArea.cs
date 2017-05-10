@@ -14,14 +14,12 @@ public class ThrowableArea : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player")
 		{
-			
 			areaMaterial.color = Color.green;
 		}
 	}
@@ -30,7 +28,6 @@ public class ThrowableArea : MonoBehaviour {
 	{
 		if (other.tag == "Player")
 		{
-			Debug.Log("Player left");
 			areaMaterial.color = Color.red;
 		}
 	}
