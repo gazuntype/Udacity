@@ -22,8 +22,8 @@ public class BallRespawn : MonoBehaviour {
 		Debug.Log(other.gameObject.name);
 		if (other.gameObject.name == "FloorPlane")
 		{
-			rigidbody.velocity = Vector3.zero;
 			transform.position = initialPosition;
+			rigidbody.velocity = Vector3.zero;
 		}
 	}
 }
