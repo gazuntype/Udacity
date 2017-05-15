@@ -5,9 +5,11 @@ using UnityEngine;
 public class BallRespawn : MonoBehaviour {
 
 	Vector3 initialPosition;
+	Rigidbody rigidbody;
 	// Use this for initialization
 	void Start () {
 		initialPosition = transform.position;
+		rigidbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -20,6 +22,7 @@ public class BallRespawn : MonoBehaviour {
 		Debug.Log(other.gameObject.name);
 		if (other.gameObject.name == "FloorPlane")
 		{
+			rigidbody.velocity = Vector3.zero;
 			transform.position = initialPosition;
 		}
 	}
