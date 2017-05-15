@@ -18,7 +18,7 @@ public class BallReaction : MonoBehaviour {
 	{
 		switch (other.gameObject.name)
 		{
-			case "Teleporter Pad A":
+			case "Teleporter Pad A(Clone)":
 				TeleportBall();
 				break;
 		}
