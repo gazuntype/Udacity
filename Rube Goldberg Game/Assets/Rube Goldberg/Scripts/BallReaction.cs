@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BallReaction : MonoBehaviour {
 	Rigidbody rigidbody;
+
+	[HideInInspector]
+	public static int collectedStars = 3;
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody>();
@@ -26,6 +29,14 @@ public class BallReaction : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Collectible")
+		{
+			CollectStar(other.gameObject);
+		}
+	}
+
 	void TeleportBall()
 	{
 		GameObject teleportTarget;
@@ -37,5 +48,11 @@ public class BallReaction : MonoBehaviour {
 			rigidbody.velocity = Vector3.zero;
 			rigidbody.angularVelocity = Vector3.zero;
 		}
+	}
+
+	void CollectStar(GameObject star)
+	{
+		collectedStars -= 1;
+		star.SetActive(false);
 	}
 }

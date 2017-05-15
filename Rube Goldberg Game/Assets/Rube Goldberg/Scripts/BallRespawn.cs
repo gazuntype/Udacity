@@ -6,10 +6,13 @@ public class BallRespawn : MonoBehaviour {
 
 	Vector3 initialPosition;
 	Rigidbody rigidbody;
+
+	GameObject[] collectible;
 	// Use this for initialization
 	void Start () {
 		initialPosition = transform.position;
 		rigidbody = GetComponent<Rigidbody>();
+		collectible = GameObject.FindGameObjectsWithTag("Collectible");
 	}
 	
 	// Update is called once per frame
@@ -21,9 +24,26 @@ public class BallRespawn : MonoBehaviour {
 	{
 		if (other.gameObject.name == "FloorPlane")
 		{
-			transform.position = initialPosition;
-			rigidbody.velocity = Vector3.zero;
-			rigidbody.angularVelocity = Vector3.zero;
+			RespawnBall();
+			RespawnCollectibles();
+		}
+	}
+
+	void RespawnBall()
+	{
+		transform.position = initialPosition;
+		rigidbody.velocity = Vector3.zero;
+		rigidbody.angularVelocity = Vector3.zero;
+	}
+
+	void RespawnCollectibles()
+	{
+		foreach (GameObject star in collectible)
+		{
+			if (!star.activeSelf)
+			{
+				star.SetActive(true);
+			}
 		}
 	}
 }
