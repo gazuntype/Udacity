@@ -14,8 +14,26 @@ public class BallReaction : MonoBehaviour {
 		
 	}
 
-	void TeleportPad()
+	void OnCollisionEnter(Collision other)
 	{
+		switch (other.gameObject.name)
+		{
+			case "Teleporter Pad A":
+				TeleportBall();
+				break;
+		}
+	}
 
+	void TeleportBall()
+	{
+		GameObject teleportTarget;
+		teleportTarget = GameObject.Find("Teleport_Target");
+		if (teleportTarget != null)
+		{
+			teleportTarget.GetComponent<Collider>().enabled = false;
+			transform.position = teleportTarget.transform.position;
+			rigidbody.velocity = Vector3.zero;
+			rigidbody.angularVelocity = Vector3.zero;
+		}
 	}
 }

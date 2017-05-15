@@ -47,7 +47,7 @@ public class ObjectThrowing : MonoBehaviour {
 			}
 			VRDevice.TriggerHapticPulse(2000);
 		}
-		else if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+		else if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Grip) && other.tag == "Throwable")
 		{
 			other.transform.SetParent(null);
 			objectRigidbody.isKinematic = false;
