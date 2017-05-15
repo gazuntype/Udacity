@@ -44,6 +44,7 @@ public class BallRespawn : MonoBehaviour {
 			{
 				star.SetActive(true);
 			}
+			BallReaction.collectedStars = 3;
 		}
 	}
 }
