@@ -11,6 +11,11 @@ public class ObjectThrowing : MonoBehaviour {
 	private SteamVR_TrackedObject trackedObject;
 	private SteamVR_Controller.Device VRDevice;
 
+	[HideInInspector]
+	public static bool inTheAir;
+	[HideInInspector]
+	public static string thrownObject;
+
 	// Use this for initialization
 	void Start () {
 		trackedObject = GetComponent<SteamVR_TrackedObject>();
@@ -32,6 +37,7 @@ public class ObjectThrowing : MonoBehaviour {
 			Debug.Log("Recognised it is a ball");
 			other.transform.SetParent(transform);
 			objectRigidbody.isKinematic = true;
+			thrownObject = other.name;
 			VRDevice.TriggerHapticPulse(2000);
 		}
 		else if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
@@ -40,6 +46,8 @@ public class ObjectThrowing : MonoBehaviour {
 			objectRigidbody.isKinematic = false;
 			objectRigidbody.velocity = VRDevice.velocity * throwForce;
 			objectRigidbody.angularVelocity = VRDevice.angularVelocity;
+			Debug.Log(inTheAir);
+			inTheAir = true;
 		}
 	}
 

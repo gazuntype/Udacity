@@ -13,4 +13,9 @@ public class BallReaction : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	void TeleportPad()
+	{
+
+	}
 }
