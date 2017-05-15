@@ -19,7 +19,6 @@ public class BallRespawn : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
-		Debug.Log(other.gameObject.name);
 		if (other.gameObject.name == "FloorPlane")
 		{
 			transform.position = initialPosition;

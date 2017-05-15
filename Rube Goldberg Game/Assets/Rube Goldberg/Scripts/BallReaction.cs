@@ -16,9 +16,11 @@ public class BallReaction : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other)
 	{
+		Debug.Log(other.gameObject.name);
 		switch (other.gameObject.name)
 		{
 			case "Teleporter Pad A(Clone)":
+				Debug.Log("I know it's a telport pad");
 				TeleportBall();
 				break;
 		}
@@ -27,7 +29,7 @@ public class BallReaction : MonoBehaviour {
 	void TeleportBall()
 	{
 		GameObject teleportTarget;
-		teleportTarget = GameObject.Find("Teleport_Target");
+		teleportTarget = GameObject.Find("Teleport_Target(Clone)");
 		if (teleportTarget != null)
 		{
 			teleportTarget.GetComponent<Collider>().enabled = false;
