@@ -18,8 +18,8 @@ public class ObjectLanded : MonoBehaviour {
 	{
 		if (name == ObjectThrowing.thrownObject && other.gameObject.name == "FloorPlane")
 		{
-			Debug.Log(ObjectThrowing.inTheAir);
 			ObjectThrowing.inTheAir = false;
+			Debug.Log(ObjectThrowing.inTheAir);
 		}
 	}
 }

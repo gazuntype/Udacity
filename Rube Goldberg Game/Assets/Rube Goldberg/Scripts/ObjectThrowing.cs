@@ -24,20 +24,22 @@ public class ObjectThrowing : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		VRDevice = SteamVR_Controller.Input((int)trackedObject.index);
-		if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger){
+		if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)){
 			FreezeObjectInAir();
 		}
 	}
 
 	void OnTriggerStay(Collider other)
 	{
-		Debug.Log("Recognised collision");
 		Rigidbody objectRigidbody;
 		objectRigidbody = other.gameObject.GetComponent<Rigidbody>();
 		if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Grip) && other.tag == "Throwable")
 		{
-			Debug.Log("Recognised it is a ball");
 			other.transform.SetParent(transform);
+			if (!objectRigidbody.useGravity)
+			{
+				objectRigidbody.useGravity = true;
+			}
 			objectRigidbody.isKinematic = true;
 			if (thrownObject != other.name)
 			{
@@ -53,8 +55,8 @@ public class ObjectThrowing : MonoBehaviour {
 			objectRigidbody.angularVelocity = VRDevice.angularVelocity;
 			if (!inTheAir)
 			{
-				Debug.Log(inTheAir);
 				inTheAir = true;
+				Debug.Log(inTheAir);
 			}
 		}
 	}
@@ -67,6 +69,7 @@ public class ObjectThrowing : MonoBehaviour {
 			Rigidbody freezeRB = freezeObject.GetComponent<Rigidbody>();
 			freezeRB.useGravity = false;
 			freezeRB.velocity = Vector3.zero;
+			freezeRB.angularVelocity = Vector3.zero;
 		}
 	}
 

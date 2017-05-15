@@ -24,6 +24,7 @@ public class BallRespawn : MonoBehaviour {
 		{
 			transform.position = initialPosition;
 			rigidbody.velocity = Vector3.zero;
+			rigidbody.angularVelocity = Vector3.zero;
 		}
 	}
 }
