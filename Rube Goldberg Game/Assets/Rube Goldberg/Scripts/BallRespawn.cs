@@ -29,6 +29,17 @@ public class BallRespawn : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.name == "Goal")
+		{
+			if (BallReaction.collectedStars == 0)
+			{
+				SteamVR_LoadLevel.Begin("secondLevel");
+			}
+		}
+	}
+
 	void RespawnBall()
 	{
 		transform.position = initialPosition;
