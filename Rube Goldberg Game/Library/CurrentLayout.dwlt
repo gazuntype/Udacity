@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 471}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 781
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 471}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -108,10 +108,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 917, y: 442}
-  m_MaxSize: {x: 22012, y: 10021}
+  m_MinSize: {x: 915, y: 421}
+  m_MaxSize: {x: 22010, y: 10021}
   vertical: 0
-  controlID: 130
+  controlID: 143
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -132,10 +132,10 @@ MonoBehaviour:
     y: 0
     width: 791
     height: 731
-  m_MinSize: {x: 202, y: 442}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 202, y: 421}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 61
+  controlID: 14
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,8 +182,8 @@ MonoBehaviour:
     y: 364
     width: 791
     height: 367
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -258,8 +258,8 @@ MonoBehaviour:
     y: 0
     width: 303
     height: 731
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -371,14 +371,14 @@ MonoBehaviour:
     width: 789
     height: 343
   m_SceneLighting: 1
-  lastFramingTime: 1569.6500347061592
+  lastFramingTime: 16372.800024493828
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.272567, y: 0.8595264, z: -4.2606506}
+    m_Target: {x: 1.8174999, y: 0.32700002, z: -2.4775}
     speed: 2
-    m_Value: {x: 4.272567, y: 0.8595264, z: -4.2606506}
+    m_Value: {x: 1.8174999, y: 0.32700002, z: -2.4775}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -403,11 +403,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: -0, z: 0, w: -1}
+    m_Value: {x: -0, y: 0, z: -0, w: -1}
   m_Size:
-    m_Target: 1.6933196
+    m_Target: 5.242955
     speed: 2
-    m_Value: 1.6933196
+    m_Value: 5.242955
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -576,29 +576,29 @@ MonoBehaviour:
     width: 202
     height: 710
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c2320000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 9c36fbff8a65fbff3a69fbff926afbff9e6cfbff5272fbff5c73fbff8a76fbff7a78fbffb00affffc80afffff4ffffff00000000fc3c0000c23e00003640000004790000
+    scrollPos: {x: 0, y: 859}
+    m_SelectedIDs: 06370000
+    m_LastClickedID: 14086
+    m_ExpandedIDs: 3ef8ffffe2fbffff000000007634000044360000ba370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: '[CameraRig]'
+      m_OriginalName: '[CameraRig]'
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 13892
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - secondLevel
+  - ExampleScene
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -639,33 +639,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Rube Goldberg/Magician/Squirrel_Magician/Modeldata
+    - Assets/Rube Goldberg/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Rube Goldberg/Magician/Squirrel_Magician/Modeldata
+  - Assets/Rube Goldberg/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\mrbig\Documents\Udacity\Rube Goldberg Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7e350000
-    m_LastClickedID: 13694
-    m_ExpandedIDs: 00000000fe3200009a330000f23400003a3500006e35000000ca9a3bffffff7f
+    m_SelectedIDs: 02270000
+    m_LastClickedID: 9986
+    m_ExpandedIDs: 00000000b025000092260000fa260000a22800008e2900009a2a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Magician
-      m_OriginalName: Magician
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 13554
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -679,7 +679,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 8e200000
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe3200009a3300003a3500006e3500007e350000
+    m_ExpandedIDs: 00000000b0250000fa260000a22800008e2900009a2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: dc0500006cceffffce0700000212ffffcc0600004a05000072050000740500003a1d00006a1c0000741c0000681c0000761c0000821c00006c1c0000301d0000a65ef9ffd61c00006e1c0000341d0000381d0000dc1c00004a1d00007c1c00008a050000721c00005c240000e424000036320000403200006a220000cc21000042310000fc260000a2c7ffff7077ffff823cffff062700000027000066270000ce2100001e230000d0210000902200009a280000ea2400007ab9fdfff024000000000000dc250000da250000222500002a250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

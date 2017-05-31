@@ -36,6 +36,7 @@ public class ObjectThrowing : MonoBehaviour {
 		if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Grip) && other.tag == "Throwable")
 		{
 			other.transform.SetParent(transform);
+			inTheAir = false;
 			if (!objectRigidbody.useGravity)
 			{
 				objectRigidbody.useGravity = true;
@@ -67,6 +68,7 @@ public class ObjectThrowing : MonoBehaviour {
 		{
 			GameObject freezeObject = GameObject.Find(thrownObject);
 			Rigidbody freezeRB = freezeObject.GetComponent<Rigidbody>();
+			freezeObject.layer = 9;
 			freezeRB.useGravity = false;
 			freezeRB.velocity = Vector3.zero;
 			freezeRB.angularVelocity = Vector3.zero;

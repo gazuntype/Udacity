@@ -13,6 +13,8 @@ public class UnfreezeObject : MonoBehaviour
 	private SteamVR_TrackedObject trackedObject;
 	private SteamVR_Controller.Device VRDevice;
 	private RaycastHit hit;
+	private GameObject hitObject = null;
+	private bool targetedFrozen;
 	// Use this for initialization
 	void Start()
 	{
@@ -24,24 +26,40 @@ public class UnfreezeObject : MonoBehaviour
 	void Update()
 	{
 		VRDevice = SteamVR_Controller.Input((int)trackedObject.index);
+		if (VRDevice.GetHairTrigger())
+		{
+			TargetObject();	
+		}
+		if (VRDevice.GetHairTriggerUp() && targetedFrozen)
+		{
+			Unfreeze();
+			laser.gameObject.SetActive(false);
+		}
 	}
 
 	void TargetObject()
 	{
-		if (VRDevice.GetHairTrigger())
+		laser.gameObject.SetActive(true);
+		laser.SetPosition(0, transform.position);
+		laser.SetPosition(1, transform.position + (transform.forward * 15));
+		if (Physics.Raycast(transform.position, transform.forward, out hit, 15f, frozen))
 		{
-			laser.gameObject.SetActive(true);
-			laser.SetPosition(0, transform.position);
-			laser.SetPosition(1, transform.position + (transform.forward * 15));
-			if (Physics.Raycast(transform.position, transform.forward, out hit, 15f, frozen))
+			hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
+			hitObject = hit.collider.gameObject;
+			targetedFrozen = true;
+		}
+		else
+		{
+			if (hitObject != null)
 			{
-				hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
+				hitObject.GetComponent<Renderer>().material.color = Color.white;
+				targetedFrozen = false;
 			}
 		}
 	}
 
 	void Unfreeze()
 	{
-
+		hitObject.GetComponent<Rigidbody>().useGravity = true;
 	}
 }
