@@ -92,6 +92,7 @@ public class ObjectThrowing : MonoBehaviour {
 			freezeRB.useGravity = false;
 			freezeRB.velocity = Vector3.zero;
 			freezeRB.angularVelocity = Vector3.zero;
+			freezeRB.isKinematic = true;
 		}
 	}
 

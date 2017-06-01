@@ -35,6 +35,7 @@ public class UnfreezeObject : MonoBehaviour
 			laser.gameObject.SetActive(false);
 			if (targetedFrozen)
 			{
+				Debug.Log("Something should unfreeze");
 				Unfreeze();
 			}
 		}
@@ -63,6 +64,8 @@ public class UnfreezeObject : MonoBehaviour
 
 	void Unfreeze()
 	{
+		Debug.Log(hitObject.ToString());
+		hitObject.GetComponent<Rigidbody>().isKinematic = false;
 		hitObject.GetComponent<Rigidbody>().useGravity = true;
 	}
 }
