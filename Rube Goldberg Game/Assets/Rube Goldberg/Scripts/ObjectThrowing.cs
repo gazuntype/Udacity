@@ -67,7 +67,7 @@ public class ObjectThrowing : MonoBehaviour {
 		if (other.name == "Next")
 		{
 			VRDevice.TriggerHapticPulse(2000);
-			if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+			if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
 			{
 				middleText.GetComponent<Instruction>().NextInstruction();
 			}
@@ -75,7 +75,7 @@ public class ObjectThrowing : MonoBehaviour {
 		else if (other.name == "Back")
 		{
 			VRDevice.TriggerHapticPulse(2000);
-			if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+			if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
 			{
 				middleText.GetComponent<Instruction>().PreviousInstruction();
 			}

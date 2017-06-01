@@ -42,7 +42,7 @@ public class BallRespawn : MonoBehaviour {
 		{
 			if (ballReaction.collectedStars == 0)
 			{
-				SteamVR_LoadLevel.Begin("sceneName");
+				SteamVR_LoadLevel.Begin(sceneName);
 			}
 		}
 	}
