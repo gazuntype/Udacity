@@ -7,6 +7,7 @@ public class ObjectThrowing : MonoBehaviour {
 	[Range(0, 10)]
 	public float throwForce = 1.5f;
 
+	public GameObject middleText;
 
 	private SteamVR_TrackedObject trackedObject;
 	private SteamVR_Controller.Device VRDevice;
@@ -26,6 +27,14 @@ public class ObjectThrowing : MonoBehaviour {
 		VRDevice = SteamVR_Controller.Input((int)trackedObject.index);
 		if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)){
 			FreezeObjectInAir();
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.name == "Next" || other.name == "Back")
+		{
+			VRDevice.TriggerHapticPulse(2000);
 		}
 	}
 
@@ -58,6 +67,14 @@ public class ObjectThrowing : MonoBehaviour {
 			{
 				inTheAir = true;
 				Debug.Log(inTheAir);
+			}
+		}
+
+		if (other.name == "Next")
+		{
+			if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+			{
+				middleText.GetComponent<Instruction>().NextInstruction();
 			}
 		}
 	}

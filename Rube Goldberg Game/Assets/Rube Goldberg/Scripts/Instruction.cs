@@ -8,19 +8,25 @@ public class Instruction : MonoBehaviour
 	[Tooltip("The voiceOver audio clips in sequential order")]
 	public AudioClip[] voiceOver;
 
+	[HideInInspector]
+	public static bool instructionOver;
+
 	public Text middleText;
 	public Text leftText;
 	public Text rightText;
+	public GameObject canvas;
 
+	private int currentIndex = 1;
 	private AudioSource audioSource;
 	private IEnumerator coroutine;
-	private string[] sequentialMessage = new string[8];
+	private string[] sequentialMessage = new string[9];
 	private bool animationComplete;
 	// Use this for initialization
 
 	void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
+		AssignStrings();
 	}
 	void Start()
 	{
@@ -47,6 +53,7 @@ public class Instruction : MonoBehaviour
 		sequentialMessage[6] = "Scroll through the object menu by swiping left or right on the touchpad. This takes you through a selection of objects that can be spawn by clicking the right trigger.";
 		sequentialMessage[7] = "Now that you know the control, these are the rules. The aim is to throw the ball and ensure it touches all the stars and lands in the goal wihtout it touching the floor. Use the objects in your object menu to achieve this. \n" +
 			"You cannot freeze the ball. \n You must throw the ball within the play area. \n Goodluck! \n Here's a hint: Some objects cannot work without others.";
+		sequentialMessage[8] = "";
 	}
 
 	IEnumerator AnimateText(int index, float animationTime)
@@ -66,4 +73,39 @@ public class Instruction : MonoBehaviour
 			yield return new WaitForSeconds(animationTime / sequentialMessage[index].Length);
 		}
 		animationComplete = true;	}
+
+	public void NextInstruction()
+	{
+		if (currentIndex <= 7)
+		{
+			leftText.text = sequentialMessage[currentIndex - 1];
+			rightText.text = sequentialMessage[currentIndex + 1];
+			StartCoroutine(AnimateText(currentIndex, 4));
+			audioSource.PlayOneShot(voiceOver[currentIndex]);
+			currentIndex += 1;
+		}
+		else
+		{
+			canvas.SetActive(false);
+			instructionOver = true;
+		}
+	}
+
+	public void PreviousInstruction()
+	{
+		if (currentIndex > 0)
+		{
+			currentIndex -= 1;
+			if (currentIndex - 1 >= 0)
+			{
+				leftText.text = sequentialMessage[currentIndex - 1];
+			}
+			else
+			{
+				leftText.text = "";
+			}
+			rightText.text = sequentialMessage[currentIndex + 1];
+			StartCoroutine(AnimateText(currentIndex, 4));
+			audioSource.PlayOneShot(voiceOver[currentIndex]);
+		}	}
 }
