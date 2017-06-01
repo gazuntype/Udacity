@@ -6,11 +6,18 @@ public class BallRespawn : MonoBehaviour {
 
 	Vector3 initialPosition;
 	Rigidbody rigidbody;
+	BallReaction ballReaction;
+
+	[Tooltip("The name of the next level scene.")]
+	public string sceneName;
 
 	GameObject[] collectible;
+	int collectibleInit;
 	// Use this for initialization
 	void Start () {
 		initialPosition = transform.position;
+		ballReaction = GameObject.Find("Ball").GetComponent<BallReaction>();
+		collectibleInit = ballReaction.collectedStars;
 		rigidbody = GetComponent<Rigidbody>();
 		collectible = GameObject.FindGameObjectsWithTag("Collectible");
 	}
@@ -33,9 +40,9 @@ public class BallRespawn : MonoBehaviour {
 	{
 		if (other.name == "Goal")
 		{
-			if (BallReaction.collectedStars == 0)
+			if (ballReaction.collectedStars == 0)
 			{
-				SteamVR_LoadLevel.Begin("secondLevel");
+				SteamVR_LoadLevel.Begin("sceneName");
 			}
 		}
 	}
@@ -55,7 +62,7 @@ public class BallRespawn : MonoBehaviour {
 			{
 				star.SetActive(true);
 			}
-			BallReaction.collectedStars = 3;
+			ballReaction.collectedStars = collectibleInit;
 		}
 	}
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class BallReaction : MonoBehaviour {
 	Rigidbody rigidbody;
 
-	[HideInInspector]
-	public static int collectedStars = 3;
+	public int collectedStars = 3;
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody>();

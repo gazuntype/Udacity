@@ -30,10 +30,13 @@ public class UnfreezeObject : MonoBehaviour
 		{
 			TargetObject();	
 		}
-		if (VRDevice.GetHairTriggerUp() && targetedFrozen)
+		if (VRDevice.GetHairTriggerUp())
 		{
-			Unfreeze();
 			laser.gameObject.SetActive(false);
+			if (targetedFrozen)
+			{
+				Unfreeze();
+			}
 		}
 	}
 
