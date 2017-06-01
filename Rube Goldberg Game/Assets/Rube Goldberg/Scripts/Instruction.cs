@@ -76,36 +76,44 @@ public class Instruction : MonoBehaviour
 
 	public void NextInstruction()
 	{
-		if (currentIndex <= 7)
+		if (animationComplete)
 		{
-			leftText.text = sequentialMessage[currentIndex - 1];
-			rightText.text = sequentialMessage[currentIndex + 1];
-			StartCoroutine(AnimateText(currentIndex, 4));
-			audioSource.PlayOneShot(voiceOver[currentIndex]);
-			currentIndex += 1;
-		}
-		else
-		{
-			canvas.SetActive(false);
-			instructionOver = true;
+			if (currentIndex <= 7)
+			{
+				leftText.text = sequentialMessage[currentIndex - 1];
+				rightText.text = sequentialMessage[currentIndex + 1];
+				StartCoroutine(AnimateText(currentIndex, 4));
+				audioSource.Stop();
+				audioSource.PlayOneShot(voiceOver[currentIndex]);
+				currentIndex += 1;
+			}
+			else
+			{
+				canvas.SetActive(false);
+				instructionOver = true;
+			}
 		}
 	}
 
 	public void PreviousInstruction()
 	{
-		if (currentIndex > 0)
+		if (animationComplete)
 		{
-			currentIndex -= 1;
-			if (currentIndex - 1 >= 0)
+			if (currentIndex > 0)
 			{
-				leftText.text = sequentialMessage[currentIndex - 1];
+				currentIndex -= 1;
+				if (currentIndex - 1 >= 0)
+				{
+					leftText.text = sequentialMessage[currentIndex - 1];
+				}
+				else
+				{
+					leftText.text = "";
+				}
+				rightText.text = sequentialMessage[currentIndex + 1];
+				StartCoroutine(AnimateText(currentIndex, 4));
+				audioSource.Stop();
+				audioSource.PlayOneShot(voiceOver[currentIndex]);
 			}
-			else
-			{
-				leftText.text = "";
-			}
-			rightText.text = sequentialMessage[currentIndex + 1];
-			StartCoroutine(AnimateText(currentIndex, 4));
-			audioSource.PlayOneShot(voiceOver[currentIndex]);
 		}	}
 }

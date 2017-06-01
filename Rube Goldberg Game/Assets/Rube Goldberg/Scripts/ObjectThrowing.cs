@@ -31,13 +31,6 @@ public class ObjectThrowing : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.name == "Next" || other.name == "Back")
-		{
-			VRDevice.TriggerHapticPulse(2000);
-		}
-	}
 
 	void OnTriggerStay(Collider other)
 	{
@@ -73,9 +66,18 @@ public class ObjectThrowing : MonoBehaviour {
 
 		if (other.name == "Next")
 		{
-			if (VRDevice.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+			VRDevice.TriggerHapticPulse(2000);
+			if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
 			{
 				middleText.GetComponent<Instruction>().NextInstruction();
+			}
+		}
+		else if (other.name == "Back")
+		{
+			VRDevice.TriggerHapticPulse(2000);
+			if (VRDevice.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+			{
+				middleText.GetComponent<Instruction>().PreviousInstruction();
 			}
 		}
 	}
