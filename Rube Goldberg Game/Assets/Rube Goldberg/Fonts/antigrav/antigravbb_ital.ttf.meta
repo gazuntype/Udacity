@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a175b7ccbeb0c754995a0b284ce74868
+timeCreated: 1496316504
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Antigrav BB
+  fontNames:
+  - Antigrav BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6b7902bd6071ee04385f429317bbf520, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
