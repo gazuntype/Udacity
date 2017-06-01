@@ -52,7 +52,7 @@ public class Instruction : MonoBehaviour
 		sequentialMessage[5] = "You can spawn different objects to help you complete the challenge. To spawn an object, open up the object menu by touching the touchpad on the right controller.";
 		sequentialMessage[6] = "Scroll through the object menu by swiping left or right on the touchpad. This takes you through a selection of objects that can be spawn by clicking the right trigger.";
 		sequentialMessage[7] = "Now that you know the control, these are the rules. The aim is to throw the ball and ensure it touches all the stars and lands in the goal wihtout it touching the floor. Use the objects in your object menu to achieve this. \n" +
-			"You cannot freeze the ball. \n You must throw the ball within the play area. \n Goodluck! \n Here's a hint: Some objects cannot work without others.";
+			"You cannot freeze the ball. \n You must throw the ball within the play area. \n Goodluck! \n Hint: Teleporter teleports ball to teleport pad.";
 		sequentialMessage[8] = "";
 	}
 

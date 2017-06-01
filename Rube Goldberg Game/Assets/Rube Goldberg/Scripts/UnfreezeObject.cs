@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnfreezeObject : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class UnfreezeObject : MonoBehaviour
 	[Tooltip("Layer mask of the objects that are frozen")]
 	public LayerMask frozen;
 
+	public LayerMask ui;
+
 	private SteamVR_TrackedObject trackedObject;
 	private SteamVR_Controller.Device VRDevice;
-	private RaycastHit hit;
+	private RaycastHit hit, hitUI;
 	private GameObject hitObject = null;
-	private bool targetedFrozen;
+	private GameObject hitButton = null;
+	private bool targetedFrozen, targetedUI;
 	// Use this for initialization
 	void Start()
 	{
@@ -38,6 +42,17 @@ public class UnfreezeObject : MonoBehaviour
 				Debug.Log("Something should unfreeze");
 				Unfreeze();
 			}
+			if (targetedUI)
+			{
+				if (hitButton.name == "Next")
+				{
+					GameObject.Find("MiddleText").GetComponent<Instruction>().NextInstruction();
+				}
+				else if (hitButton.name == "Back")
+				{
+					GameObject.Find("MiddleText").GetComponent<Instruction>().PreviousInstruction();
+				}
+			}
 		}
 	}
 
@@ -58,6 +73,24 @@ public class UnfreezeObject : MonoBehaviour
 			{
 				hitObject.GetComponent<Renderer>().material.color = Color.white;
 				targetedFrozen = false;
+			}
+		}
+
+		if (Physics.Raycast(transform.position, transform.forward, out hitUI, 15f, ui))
+		{
+			if (hitUI.collider.gameObject.tag == "button")
+			{
+				hitUI.collider.gameObject.GetComponent<Image>().color = Color.green;
+				hitButton = hitUI.collider.gameObject;
+				targetedUI = true;
+			}
+		}
+		else
+		{
+			if (hitButton != null && hitButton.tag == "button")
+			{
+				hitButton.GetComponent<Image>().color = Color.black;
+				targetedUI = false;
 			}
 		}
 	}

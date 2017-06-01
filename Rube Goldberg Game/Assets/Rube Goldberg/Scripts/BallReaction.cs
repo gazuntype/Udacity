@@ -30,7 +30,7 @@ public class BallReaction : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Collectible")
+		if (other.tag == "Collectible" && !ThrowableArea.isOut)
 		{
 			CollectStar(other.gameObject);
 		}

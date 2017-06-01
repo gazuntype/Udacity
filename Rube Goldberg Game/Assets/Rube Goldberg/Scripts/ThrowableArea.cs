@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThrowableArea : MonoBehaviour {
-
+	[HideInInspector]
+	public static bool isOut;
 	private Renderer areaRenderer;
 	private Material areaMaterial;
 	// Use this for initialization
@@ -22,6 +23,7 @@ public class ThrowableArea : MonoBehaviour {
 		{
 			areaMaterial.color = Color.green;
 		}
+		isOut = false;
 	}
 
 	void OnTriggerExit(Collider other)
@@ -30,5 +32,6 @@ public class ThrowableArea : MonoBehaviour {
 		{
 			areaMaterial.color = Color.red;
 		}
+		isOut = true;
 	}
 }

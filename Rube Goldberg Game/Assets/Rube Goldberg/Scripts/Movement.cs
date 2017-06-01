@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour {
 			laser.SetPosition(0, transform.position);
 			teleportLocation = hit.point;
 			laser.SetPosition(1, teleportLocation);
-			teleportLocator.transform.position = teleportLocation + new Vector3(0, 0.5f, 0);
+			teleportLocator.transform.position = teleportLocation;
 		}
 		else if (Physics.Raycast(transform.position + (new Vector3(transform.forward.x, 0, transform.forward.z) * 15), Vector3.down, out hit, 15f, walkable))
 		{
