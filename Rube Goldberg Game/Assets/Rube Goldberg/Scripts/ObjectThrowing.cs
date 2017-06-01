@@ -7,7 +7,7 @@ public class ObjectThrowing : MonoBehaviour {
 	[Range(0, 10)]
 	public float throwForce = 1.5f;
 
-	public GameObject middleText;
+	private GameObject middleText;
 
 	private SteamVR_TrackedObject trackedObject;
 	private SteamVR_Controller.Device VRDevice;
@@ -19,6 +19,7 @@ public class ObjectThrowing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		middleText = GameObject.Find("MiddleText");
 		trackedObject = GetComponent<SteamVR_TrackedObject>();
 	}
 	
