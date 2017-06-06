@@ -80,6 +80,7 @@ public class UnfreezeObject : MonoBehaviour
 		{
 			if (hitUI.collider.gameObject.tag == "button")
 			{
+				VRDevice.TriggerHapticPulse(2000);
 				hitUI.collider.gameObject.GetComponent<Image>().color = Color.green;
 				hitButton = hitUI.collider.gameObject;
 				targetedUI = true;

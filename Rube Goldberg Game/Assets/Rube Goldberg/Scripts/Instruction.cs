@@ -82,7 +82,7 @@ public class Instruction : MonoBehaviour
 			{
 				leftText.text = sequentialMessage[currentIndex - 1];
 				rightText.text = sequentialMessage[currentIndex + 1];
-				StartCoroutine(AnimateText(currentIndex, 4));
+				StartCoroutine(AnimateText(currentIndex, 2));
 				audioSource.Stop();
 				audioSource.PlayOneShot(voiceOver[currentIndex]);
 				currentIndex += 1;
@@ -99,7 +99,7 @@ public class Instruction : MonoBehaviour
 	{
 		if (animationComplete)
 		{
-			if (currentIndex > 0)
+			if (currentIndex > 1)
 			{
 				currentIndex -= 1;
 				if (currentIndex - 1 >= 0)
@@ -111,7 +111,7 @@ public class Instruction : MonoBehaviour
 					leftText.text = "";
 				}
 				rightText.text = sequentialMessage[currentIndex + 1];
-				StartCoroutine(AnimateText(currentIndex, 4));
+				StartCoroutine(AnimateText(currentIndex, 2));
 				audioSource.Stop();
 				audioSource.PlayOneShot(voiceOver[currentIndex]);
 			}
